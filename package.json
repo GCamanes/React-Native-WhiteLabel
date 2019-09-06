@@ -13,6 +13,7 @@
     "switch:app3": "gulp --tenant app3"
   },
   "dependencies": {
+    "prop-types": "^15.7.2",
     "react": "16.8.6",
     "react-native": "0.60.5",
     "react-native-config": "^0.11.7"

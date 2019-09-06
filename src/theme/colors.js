@@ -12,6 +12,7 @@ const colors = {
 
 const statusbar = {
   barStyle: 'light-content',
+  backgroundColor: colors.secondary,
 }
 
 export default {

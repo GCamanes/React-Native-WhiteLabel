@@ -16,33 +16,51 @@ import {
   StatusBar,
 } from 'react-native';
 
-import {AppColors} from './theme';
+import { AppColors, AppStyles } from './theme';
 import AppConfig from './app/app.config';
+import Tabbar from './components/tabbar/Tabbar';
 
 const App = () => {
   return (
     <Fragment>
-      <StatusBar barStyle={AppColors.statusbar.barStyle} />
+      <StatusBar barStyle={AppColors.statusbar.barStyle} backgroundColor={AppColors.statusbar.backgroundColor}/>
       <SafeAreaView
         style={{flex: 0, backgroundColor: AppColors.palette.secondary}}
       />
       <SafeAreaView
         style={{flex: 1, backgroundColor: AppColors.palette.secondary}}>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Text style={styles.sectionTitle}>
-            {`You are now on ${AppConfig.general.appName} !`}
-          </Text>
-        </ScrollView>
+        <View style={styles.view}>
+          <View style={styles.textView}>
+            <Text style={styles.text}>
+              {`You are now on ${AppConfig.general.appName} !`}
+            </Text>
+          </View>
+        </View>
+        <Tabbar />
       </SafeAreaView>
     </Fragment>
   );
 };
 
 const styles = StyleSheet.create({
-  scrollView: {
+  view: {
+    flex: 1,
     backgroundColor: AppColors.palette.white,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  textView: {
+    borderWidth: 2,
+    borderColor: AppColors.palette.primary,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 10,
+    height: 100,
+    paddingHorizontal: 10,
+  },
+  text: {
+    ...AppStyles.base24Bold,
+    color: AppColors.palette.secondary,
   },
 });
 
