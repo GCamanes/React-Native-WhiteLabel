@@ -1,5 +1,12 @@
 apply plugin: "com.android.application"
 
+project.ext.envConfigFiles = [
+    debug: "config/.env",
+    release: "config/.env.release",
+]
+
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
+
 import com.android.build.OutputFile
 
 /**
@@ -128,11 +135,12 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.rex_whitelabel"
+        applicationId project.env.get("APP_ID")
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 2
         versionName "1.0.1"
+        resValue "string", "build_config_package", "com.rex_whitelabel"
     }
     splits {
         abi {

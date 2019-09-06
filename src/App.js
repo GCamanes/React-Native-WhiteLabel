@@ -24,6 +24,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import AppConfig from './app/app.config';
+
 const App = () => {
   return (
     <Fragment>
@@ -38,6 +40,11 @@ const App = () => {
               <Text style={styles.footer}>Engine: Hermes</Text>
             </View>
           )}
+          <View>
+            <Text style={styles.sectionTitle}>
+              {`You are now on ${AppConfig.general.appName} !`}
+            </Text>
+          </View>
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>

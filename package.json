@@ -1,9 +1,9 @@
 {
   "name": "rex_whiteLabel",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "react-native start",
+    "start": "gulp startApp",
     "test": "jest",
     "lint": "eslint .",
     "android": "react-native run-android",
