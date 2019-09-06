@@ -1,8 +1,7 @@
 platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-target 'rex_whiteLabel' do
-  # Pods for rex_whiteLabel
+def install_pods
   pod 'React', :path => '../node_modules/react-native/'
   pod 'React-Core', :path => '../node_modules/react-native/React'
   pod 'React-DevSupport', :path => '../node_modules/react-native/React'
@@ -27,20 +26,12 @@ target 'rex_whiteLabel' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  target 'rex_whiteLabelTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
   use_native_modules!
 end
 
-target 'rex_whiteLabel-tvOS' do
-  # Pods for rex_whiteLabel-tvOS
-
-  target 'rex_whiteLabel-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
+project = Xcodeproj::Project.open "./rex_whitelabel.xcodeproj"
+project.targets.each do |t|
+    target t.name do
+        install_pods
+    end
 end
