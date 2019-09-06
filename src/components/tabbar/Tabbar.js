@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import TabbarItem from './tabbarItem/TabbarItem';
 import { AppColors } from '../../theme';
 import AppConstants from '../../app/app.constants';
+import AppConfig from '../../app/app.config';
 
 /**
  * Define stylesheet.
@@ -62,18 +63,28 @@ class Tabbar extends React.Component {
           onPress={this.onPress}
           path={AppConstants.ROUTES.HOME}
         />
-        <TabbarItem
-          activeTab={activeTab}
-          name="Shop"
-          onPress={this.onPress}
-          path={AppConstants.ROUTES.SHOP}
-        />
+        {AppConfig.feature.shop && (
+          <TabbarItem
+            activeTab={activeTab}
+            name="Shop"
+            onPress={this.onPress}
+            path={AppConstants.ROUTES.SHOP}
+          />
+        )}
         <TabbarItem
           activeTab={activeTab}
           name="User"
           onPress={this.onPress}
           path={AppConstants.ROUTES.USER_DETAILS}
         />
+        {AppConfig.feature.bonus && (
+          <TabbarItem
+            activeTab={activeTab}
+            name="Bonus"
+            onPress={this.onPress}
+            path={AppConstants.ROUTES.BONUS}
+          />
+        )}
       </View>
     );
   }

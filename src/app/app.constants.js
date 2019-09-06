@@ -13,6 +13,7 @@ const AppConstants = {
     HOME: 'home',
     SHOP: 'shop',
     USER_DETAILS: 'user_details',
+    BONUS: 'bonus',
   },
   URLS: {},
   WEBSERVICES: {},
