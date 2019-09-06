@@ -1,25 +1,36 @@
 {
   "name": "rex_whiteLabel",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "android": "react-native run-android",
+    "postversion": "gulp updateTenantVersion && react-native-version",
+    "switch:app1": "gulp --tenant app1",
+    "switch:app2": "gulp --tenant app2",
+    "switch:app3": "gulp --tenant app3"
   },
   "dependencies": {
     "react": "16.8.6",
-    "react-native": "0.60.5"
+    "react-native": "0.60.5",
+    "react-native-config": "^0.11.7"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/runtime": "^7.5.5",
     "@react-native-community/eslint-config": "^0.0.5",
     "babel-jest": "^24.9.0",
+    "dotenv": "^8.1.0",
     "eslint": "^6.3.0",
+    "fs-extra": "^8.1.0",
+    "gulp": "^4.0.2",
     "jest": "^24.9.0",
     "metro-react-native-babel-preset": "^0.56.0",
-    "react-test-renderer": "16.8.6"
+    "react-native-version": "^3.1.0",
+    "react-test-renderer": "16.8.6",
+    "yargs": "^14.0.0"
   },
   "jest": {
     "preset": "react-native"
