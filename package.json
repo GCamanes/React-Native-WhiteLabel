@@ -7,6 +7,8 @@
     "test": "jest",
     "lint": "eslint .",
     "android": "react-native run-android",
+    "android-dev": "ENVFILE=config/.env.dev react-native run-android",
+    "android-release": "ENVFILE=config/.env.release react-native run-android",
     "postversion": "gulp updateTenantVersion && react-native-version",
     "switch:app1": "gulp --tenant app1",
     "switch:app2": "gulp --tenant app2",
